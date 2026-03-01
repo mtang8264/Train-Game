@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BlockType" format=3 uid="uid://b84ya6jwsxda"]
+
+[ext_resource type="Script" uid="uid://bu07tjjl6772a" path="res://Scripts/BlockType.gd" id="1_0o1hj"]
+[ext_resource type="PackedScene" uid="uid://vyyi5a232wif" path="res://Blocks/Block_Basic.tscn" id="1_h3p1v"]
+
+[resource]
+script = ExtResource("1_0o1hj")
+block_name = "Basic"
+block_instance = ExtResource("1_h3p1v")
+block_filepath = "res://Blocks/Block_Basic.tscn"
+metadata/_custom_type_script = "uid://bu07tjjl6772a"
