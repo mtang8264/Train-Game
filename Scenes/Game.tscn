@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://by0yjj1sob0l5"]
 
 [ext_resource type="Script" uid="uid://bgt0kewbw7axx" path="res://Scripts/MapController.gd" id="1_iukft"]
-[ext_resource type="Resource" uid="uid://b84ya6jwsxda" path="res://Blocks/Basic.tres" id="3_kldst"]
+[ext_resource type="Resource" uid="uid://cagvbqr2cnkjl" path="res://Objects/Blocks/Sandy.tres" id="3_j5yw3"]
+[ext_resource type="Resource" uid="uid://b84ya6jwsxda" path="res://Objects/Blocks/Basic.tres" id="3_kldst"]
 
 [node name="Node3D" type="Node3D" unique_id=1286408859]
 
@@ -10,13 +11,14 @@ transform = Transform3D(-0.7071068, 0.5, -0.5, 0, 0.7071068, 0.70710677, 0.70710
 projection = 1
 size = 8.009
 
-[node name="Map" type="Node3D" parent="." unique_id=1860340154]
-script = ExtResource("1_iukft")
-block_offset = Vector2(0.52, 0.5)
-block_types = {
-"b": ExtResource("3_kldst")
-}
-map_to_load = "res://Maps/TestMap1.csv"
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=84334538]
 transform = Transform3D(0.57029796, 0.553633, -0.6068369, 5.0411915e-09, 0.73874956, 0.6739802, 0.821438, -0.3843695, 0.42130733, 0, 0, 0)
+
+[node name="Map" type="Node3D" parent="." unique_id=1860340154]
+script = ExtResource("1_iukft")
+block_offset = Vector2(0.5, 0.5)
+block_types = {
+"b": ExtResource("3_kldst"),
+"s": ExtResource("3_j5yw3")
+}
+map_to_load = "res://Maps/TestMap1.csv"

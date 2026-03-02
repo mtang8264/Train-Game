@@ -45,7 +45,7 @@ func _generate_map() -> bool:
 	
 func _spawn_block(block_key: String, pos_x: int, pos_y: int) -> void:
 	var block_type = block_types[block_key]
-	var block_scene = load(block_type.block_filepath)
+	var block_scene = load(block_type.get_block_filepath())
 	var block = block_scene.instantiate()
 	add_child(block)
 	block.position = Vector3(pos_x * block_offset.x,0,  pos_y * block_offset.y)
