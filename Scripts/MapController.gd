@@ -3,6 +3,7 @@ extends Node3D
 
 @export var block_offset: Vector2
 @export var block_types: Dictionary
+@export var tree_scene: PackedScene
 @export var map_to_load: String
 
 var map_data = []
@@ -40,13 +41,22 @@ func _generate_map() -> bool:
 			if map_data[y][x] == "":
 				continue
 			_spawn_block(map_data[y][x], x, y)
-	
+			if len(map_data[y][x]) == 1:
+				continue
+			elif map_data[y][x][1] == "t":
+				_spawn_tree(x,y)
 	return true
 	
 func _spawn_block(block_key: String, pos_x: int, pos_y: int) -> void:
-	var block_type = block_types[block_key]
+	var block_type = block_types[block_key[0]]
 	var block_scene = load(block_type.get_block_filepath())
 	var block = block_scene.instantiate()
 	add_child(block)
 	block.position = Vector3(pos_x * block_offset.x,0,  pos_y * block_offset.y)
+	pass
+
+func _spawn_tree(pos_x: float, pos_y: float) -> void:
+	var tree = tree_scene.instantiate()
+	tree.position = Vector3(pos_x * block_offset.x, 0, pos_y * block_offset.y)
+	add_child(tree)
 	pass

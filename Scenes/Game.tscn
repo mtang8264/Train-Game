@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bgt0kewbw7axx" path="res://Scripts/MapController.gd" id="1_iukft"]
 [ext_resource type="Resource" uid="uid://cagvbqr2cnkjl" path="res://Objects/Blocks/Sandy.tres" id="3_j5yw3"]
 [ext_resource type="Resource" uid="uid://b84ya6jwsxda" path="res://Objects/Blocks/Basic.tres" id="3_kldst"]
+[ext_resource type="PackedScene" uid="uid://dvcjlbsiuke2q" path="res://Objects/Tree.tscn" id="4_kldst"]
 
 [node name="Node3D" type="Node3D" unique_id=1286408859]
 
@@ -21,4 +22,5 @@ block_types = {
 "b": ExtResource("3_kldst"),
 "s": ExtResource("3_j5yw3")
 }
+tree_scene = ExtResource("4_kldst")
 map_to_load = "res://Maps/TestMap1.csv"

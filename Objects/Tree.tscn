@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dvcjlbsiuke2q"]
+
+[ext_resource type="Script" uid="uid://d2l13n1ehgd78" path="res://Scripts/TreeController.gd" id="1_mt44x"]
+[ext_resource type="Material" uid="uid://d3k2e3cq00giw" path="res://Materials/Mat_Tree.tres" id="1_t7qw3"]
+[ext_resource type="Material" uid="uid://cwdn5qj78qacn" path="res://Materials/Mat_Leaves.tres" id="2_mt44x"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_v0hdn"]
+top_radius = 0.05
+bottom_radius = 0.1
+height = 0.66
+
+[sub_resource type="SphereMesh" id="SphereMesh_70dwa"]
+radius = 0.175
+height = 0.2
+
+[node name="Tree" type="Node3D" unique_id=1390044215]
+script = ExtResource("1_mt44x")
+
+[node name="Trunk" type="MeshInstance3D" parent="." unique_id=878580511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5662121, 0)
+mesh = SubResource("CylinderMesh_v0hdn")
+surface_material_override/0 = ExtResource("1_t7qw3")
+
+[node name="Leaves" type="MeshInstance3D" parent="Trunk" unique_id=723633496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2916813, 0)
+mesh = SubResource("SphereMesh_70dwa")
+surface_material_override/0 = ExtResource("2_mt44x")
+
+[node name="Leaves2" type="MeshInstance3D" parent="Trunk" unique_id=2027863528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.046892166, 0.1624201, 0.08712757)
+mesh = SubResource("SphereMesh_70dwa")
+surface_material_override/0 = ExtResource("2_mt44x")
+
+[node name="Leaves3" type="MeshInstance3D" parent="Trunk" unique_id=1633848842]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016363978, 0.10208392, -0.11842129)
+mesh = SubResource("SphereMesh_70dwa")
+surface_material_override/0 = ExtResource("2_mt44x")

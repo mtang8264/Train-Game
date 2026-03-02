@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://moatfd6wy7s6"]
 
-[ext_resource type="PackedScene" uid="uid://cwpmm5u55iy50" path="res://Models/Basic_Cube.blend" id="1_48d6b"]
+[ext_resource type="PackedScene" uid="uid://da7k1kxsp7p4g" path="res://Models/Basic_Cube.fbx" id="1_5xeiw"]
 [ext_resource type="Material" uid="uid://8bl7mdwobl0q" path="res://Materials/Mat_SandyBlock.tres" id="2_jym33"]
 
 [node name="BlockBasic" type="Node3D" unique_id=539272462]
 
-[node name="Basic_Cube" parent="." unique_id=1214732519 instance=ExtResource("1_48d6b")]
+[node name="Basic_Cube" parent="." unique_id=1410816228 instance=ExtResource("1_5xeiw")]
 
-[node name="Cube" parent="Basic_Cube" index="0" unique_id=1040560426]
+[node name="Cube" parent="Basic_Cube" index="0" unique_id=824234702]
 surface_material_override/0 = ExtResource("2_jym33")
 
 [editable path="Basic_Cube"]
