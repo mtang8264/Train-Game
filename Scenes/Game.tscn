@@ -17,7 +17,6 @@ transform = Transform3D(0.57029796, 0.553633, -0.6068369, 5.0411915e-09, 0.73874
 
 [node name="Map" type="Node3D" parent="." unique_id=1860340154]
 script = ExtResource("1_iukft")
-block_offset = Vector2(0.5, 0.5)
 block_types = {
 "b": ExtResource("3_kldst"),
 "s": ExtResource("3_j5yw3")
