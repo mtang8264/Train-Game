@@ -77,6 +77,10 @@ void parseCSVToMap() {
     line = strings[y+1].split(",");
     for (int x = 0; x < line.length; x ++) {
       mapData[x][y] = line[x];
+      
+      if (mapData[x][y].length() == 1) {
+        mapData[x][y] = mapData[x][y] + "e";
+      }
     }
   }
 }
@@ -93,6 +97,18 @@ float getMaxSquareSize() {
   float widthIdeal = mapSpaceWidth / getMapWidth();
   float heightIdeal = mapSpaceHeight / getMapHeight();
   return min(widthIdeal, heightIdeal);
+}
+
+String getBlock(int x, int y) {
+  return mapData[x][y];
+}
+
+String getBlockType(int x, int y) {
+  return mapData[x][y].substring(0,1);
+}
+
+String getBlockTile(int x, int y) {
+  return mapData[x][y].substring(1,2);
 }
 
 // Draw functions.
@@ -131,13 +147,21 @@ void drawMap() {
       float u = upBound + (y * squareSize) + squareStrokeWidth;
       float s = squareSize;
       square(l,u,s);
+      
+      // Draw the tile type
+      String blockTile = getBlockTile(x,y);
+      if (!blockTile.equals("e")) {
+        float tx = l + (squareSize/2);
+        float ty = u + (squareSize/2);
+        drawBlockTile(blockTile, tx, ty);
+      }
     }
   }
 }
 
 void setSquareColor(int x, int y) {
-  String data = mapData[x][y].substring(0,1);
-  println(data);
+  String data = getBlockType(x, y);
+  
   if (data.equals("b")) {
     fill(blockColorBasic);
   } else if (data.equals("s")) {
@@ -145,4 +169,10 @@ void setSquareColor(int x, int y) {
   } else {
     fill (blockColorNone);
   }
+}
+
+void drawBlockTile(String tile, float x, float y) {
+  fill(color(255,255,255));
+  textAlign(CENTER, CENTER);
+  text(tile, x, y);
 }
