@@ -10,6 +10,7 @@ color mapSpaceColor = color(75,75,75);
 int squareStrokeWidth = 1;
 
 String loadedFile = "";
+boolean fileAltered = false;
 
 String[][] mapData = {{}};
 
@@ -134,6 +135,7 @@ String getBlockTile(int x, int y) {
 }
 
 void changeBlockTileToNext(int x, int y) {
+  fileAltered = true;
   if (getBlockType(x,y).equals("n")) { return; }
   String curr = getBlockTile(x,y);
   String chan = getBlockType(x,y);
@@ -160,6 +162,11 @@ void drawLoadedFileText() {
   textAlign(LEFT, TOP);
   textSize(24);
   text(loadedFile, 5, 5);
+  
+  if (fileAltered) {
+    fill(color(255,0,0));
+    text("Unsaved changes", 5, 29);
+  }
 }
 
 void drawMapSpace() {
