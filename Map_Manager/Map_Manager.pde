@@ -46,6 +46,28 @@ void keyPressed() {
   }
 }
 
+void mouseClicked() {
+  float squareSize = getMaxSquareSize();
+  int mapWidth = getMapWidth();
+  int mapHeight = getMapHeight();
+  float fullWidth = mapWidth * squareSize;
+  float fullHeight = mapHeight * squareSize;
+  
+  float leftBound = (windowWidth / 2) - (fullWidth/2);
+  float upBound = (windowHeight/2) - (fullHeight/2);
+  
+  if (mouseX < leftBound || mouseY < upBound) { return; }
+  
+  int blockX = (int)((mouseX - leftBound) / squareSize);
+  int blockY = (int)((mouseY - upBound) / squareSize);
+  
+  if (blockX < 0 || blockY < 0 || blockX >= getMapWidth() || blockY >= getMapHeight()) {return;}
+  
+  println(blockX + ", " + blockY);
+  
+  changeBlockTileToNext(blockX, blockY);
+}
+
 void fileSelected(File selection) {
   // If no file was selected just return.
   if (selection == null) {
@@ -109,6 +131,27 @@ String getBlockType(int x, int y) {
 
 String getBlockTile(int x, int y) {
   return mapData[x][y].substring(1,2);
+}
+
+void changeBlockTileToNext(int x, int y) {
+  if (getBlockType(x,y).equals("n")) { return; }
+  String curr = getBlockTile(x,y);
+  String chan = getBlockType(x,y);
+  
+  if (curr.equals("e")) {
+    chan = chan + "t";
+  }
+  else if (curr.equals("t")) {
+    chan = chan + "r";
+  }
+  else if (curr.equals("r")) {
+    chan = chan + "c";
+  }
+  else {
+    chan = chan + "e";
+  }
+  
+  mapData[x][y] = chan;
 }
 
 // Draw functions.
